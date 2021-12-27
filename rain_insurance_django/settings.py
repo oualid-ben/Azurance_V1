@@ -131,8 +131,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 #disable geroku test runner which does some actions which don't work with sqlite (test_runner=False)
 django_heroku.settings(locals(),test_runner=False)
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
