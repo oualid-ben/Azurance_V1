@@ -82,3 +82,4 @@ If you are using the `<picture>` element to specify multiple `<source>` elements
   <img src="..." class="img-fluid img-thumbnail" alt="...">
 </picture>
 {% endhighlight %}
+
