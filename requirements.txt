@@ -1,0 +1,15 @@
+django
+gunicorn
+django-heroku
+django-bootstrap4
+fpdf
+matplotlib
+django-after-response
+pandas
+requests
+django-chartjs
+django-jquery
+sklearn
+mglearn
+joblib
+statsmodels
