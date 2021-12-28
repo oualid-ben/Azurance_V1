@@ -15,25 +15,23 @@ cities = (
 )
 
 class RetroForm(forms.Form):
-    clientName = forms.CharField(label='Company Name',max_length=100)
-    clientName.widget.attrs.update({'class': 'form-control', 'value':'Burger King'})
+    clientName = forms.CharField(label="Nom de l'entreprise", max_length=100)
+    clientName.widget.attrs.update({'class': 'form-control', 'value': 'Carrefour Antibes'})
 
-    dailyMaxTurnover = forms.FloatField(label='Daily Max Turnover')
-    dailyMaxTurnover.widget.attrs.update({'class': 'form-control','value':1000})
+    dailyMaxTurnover = forms.FloatField(label="Chiffre d'affaire journalier maximum")
+    dailyMaxTurnover.widget.attrs.update({'class': 'form-control', 'value': 1500})
 
-    fixedCosts = forms.FloatField(label='Daily Fixed Costs')
-    fixedCosts.widget.attrs.update({'class': 'form-control','value':450 })
+    fixedCosts = forms.FloatField(label="Coûts fixes journalier")
+    fixedCosts.widget.attrs.update({'class': 'form-control', 'value': 650})
 
-    rainfall = forms.FloatField(label='Critic Rainfall (mm)')
-    rainfall.widget.attrs.update({'class': 'form-control','value':2})
+    rainfall = forms.FloatField(label="Niveau de pluie journalier pivot. (mm)")
+    rainfall.widget.attrs.update({'class': 'form-control', 'value': 20})
 
-    #subscriptionDate = forms.DateField(widget=DatePickerInput(format='%m/%d/%Y'))
-    subscriptionDate = forms.CharField(label='Retrospective Year',max_length=4)
+    subscriptionDate = forms.CharField(label="Année rétrospective",max_length=4)
     subscriptionDate.widget.attrs.update({'class': 'form-control', 'value':'2019'})
     
-    location = forms.ChoiceField(label = 'Company Location',choices = cities)
+    location = forms.ChoiceField(label = "Ville",choices = cities)
     location.widget.attrs.update({'class': 'form-control'})
 
-    printPDF = forms.ChoiceField(label = 'Export As Pdf',choices = ( ("No", "No"), ("Yes", "Yes") ) )
+    printPDF = forms.ChoiceField(label = "Obtenir devies en pdf",choices = ( ("Non", "Non"),("Oui", "Oui")))
     printPDF.widget.attrs.update({'class': 'form-control'})
-

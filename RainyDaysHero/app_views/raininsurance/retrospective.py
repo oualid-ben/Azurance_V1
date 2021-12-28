@@ -96,7 +96,7 @@ def retrospective(request):
 
             #Company name
             pdf.ln(25)
-            pdf.cell(0, 5, 'Rainy Days Hero', ln=1)
+            pdf.cell(0, 5, 'Devis', ln=1)
 
             
             #Informatios
@@ -106,55 +106,21 @@ def retrospective(request):
             pdf.cell(65, 10, 'Rain Insurance quotation','B', ln=2)
             pdf.set_text_color(0, 0, 0)
             pdf.set_font('Arial', 'B', 10)
-            pdf.cell(65, 10, "Max daily turover: "+str(form['dailyMaxTurnover'].value()), ln=2)
-            pdf.cell(65, 10, "Fixed costs: "+str(form['fixedCosts'].value()), ln=2)
-            pdf.cell(65, 10, "Crucial rainfall: "+str(form['rainfall'].value()), ln=2)
-            pdf.cell(65, 10, "Subsciption date: "+form['subscriptionDate'].value(), ln=2)
-            #pdf.cell(65, 10, "Subsciption date: "+form['subscriptionDate'].value().strftime("%Y-%m-%d"), ln=2)
-            pdf.cell(65, 10, "Duration: "+"365 days", ln=2)
-            pdf.cell(65, 10, "Location: "+form['location'].value(), ln=2)
+            pdf.cell(65, 10, "Chiffre d'affaire journalier maximum: "+str(form['dailyMaxTurnover'].value()), ln=2)
+            pdf.cell(65, 10, "Coûts fixes journalier: "+str(form['fixedCosts'].value()), ln=2)
+            pdf.cell(65, 10, "Niveau de pluie journalier pivot (mm): "+str(form['rainfall'].value()), ln=2)
+            pdf.cell(65, 10, "Date de subscription: "+form['subscriptionDate'].value(), ln=2)
+            pdf.cell(65, 10, "Durée: "+"365 jours", ln=2)
+            pdf.cell(65, 10, "Ville: "+form['location'].value(), ln=2)
 
             #premium
             pdf.set_text_color(39, 174, 96)
             pdf.ln(10)
             pdf.cell(60)
             pdf.set_font('Arial', 'B', 15)
-            pdf.cell(65, 10, "Premium Price: "+premium+" "+chr(128), ln=2)
-            pdf.cell(65, 10, "Covered Result: "+covered+" "+chr(128), ln=2)
-            pdf.cell(65, 10, "Uncovered Result: "+notcovered+" "+chr(128), ln=2)
-
-            #graph days
-
-            '''
-            days = [i for i in range(365)]
-            plt.plot(days,c,label="Covered")
-            plt.plot(days,nc,label="Uncovered")
-            '''
-
-            #graph months
-            months = [i for i in range(1,13)]
-            months_c = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-            
-            plt.xticks(rotation=45, ha='right')
-            plt.xlabel('Months')
-            plt.ylabel('Results')
-            plt.plot(months_c,cm.values(),label="Covered")
-            plt.plot(months_c,ncm.values(),label="Uncovered")
-
-
-            #plot graph
-            plt.title("Result Evolution Graph", fontweight="bold", fontsize=16, color="blue")
-            plt.tight_layout()
-            #plt.legend(loc='best')
-            #lgd = plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05),fancybox=True, shadow=True, ncol=5)
-            lgd = plt.legend(title='Caption', bbox_to_anchor=(1.05, 1), loc='upper left')
-            retroFIG = ''.join(choice(ascii_uppercase) for i in range(100))+'.png'
-
-            plt.savefig(retroFIG, bbox_extra_artists=(lgd,), bbox_inches='tight')
-            pdf.image(retroFIG,45, 170 ,120)
-            #delete the fig
-            os.remove(retroFIG)
-            plt.close()
+            pdf.cell(65, 10, "Prix premium: "+premium+" "+chr(128), ln=2)
+            pdf.cell(65, 10, "Couverture: "+covered+" "+chr(128), ln=2)
+            pdf.cell(65, 10, "Non couverture: "+notcovered+" "+chr(128), ln=2)
 
             #save file and del after response
             quotationPDFFile = ''.join(choice(ascii_uppercase) for i in range(100))+'.pdf'
@@ -163,7 +129,7 @@ def retrospective(request):
             response['Content-Disposition'] = "attachment; filename=quotationPDFFile"
             removequotationfile.after_response(quotationPDFFile)
             #response.write(open("tuto.pdf"))
-            if form['printPDF'].value()=='Yes':
+            if form['printPDF'].value()=='Oui':
                 return FileResponse(open(quotationPDFFile, "rb"), as_attachment=True, filename='retrospective.pdf')
             else:
                 return HttpResponse(template.render(context, request))

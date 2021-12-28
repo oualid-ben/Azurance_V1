@@ -85,7 +85,7 @@ def quotation(request):
 
             #Company name
             pdf.ln(25)
-            pdf.cell(0, 5, 'Rainy Days Hero', ln=1)
+            pdf.cell(0, 5, 'Devis', ln=1)
 
             
             #Informatios
@@ -95,13 +95,12 @@ def quotation(request):
             pdf.cell(65, 10, 'Rain Insurance quotation','B', ln=2)
             pdf.set_text_color(0, 0, 0)
             pdf.set_font('Arial', 'B', 10)
-            pdf.cell(65, 10, "Max daily turover: "+str(form['dailyMaxTurnover'].value()), ln=2)
-            pdf.cell(65, 10, "Fixed costs: "+str(form['fixedCosts'].value()), ln=2)
-            pdf.cell(65, 10, "Crucial rainfall: "+str(form['rainfall'].value()), ln=2)
-            pdf.cell(65, 10, "Subsciption date: "+form['subscriptionDate'].value(), ln=2)
-            #pdf.cell(65, 10, "Subsciption date: "+form['subscriptionDate'].value().strftime("%Y-%m-%d"), ln=2)
-            pdf.cell(65, 10, "Duration: "+"365 days", ln=2)
-            pdf.cell(65, 10, "Location: "+form['location'].value(), ln=2)
+            pdf.cell(65, 10, "Chiffre d'affaire journalier maximum: "+str(form['dailyMaxTurnover'].value()), ln=2)
+            pdf.cell(65, 10, "Coûts fixes journalier: "+str(form['fixedCosts'].value()), ln=2)
+            pdf.cell(65, 10, "Niveau de pluie journalier pivot (mm): "+str(form['rainfall'].value()), ln=2)
+            pdf.cell(65, 10, "Date de subscription: "+form['subscriptionDate'].value(), ln=2)
+            pdf.cell(65, 10, "Durée: "+"365 jours", ln=2)
+            pdf.cell(65, 10, "Ville: "+form['location'].value(), ln=2)
 
             #premium
             premium = calculatePrice(form['location'].value(),form['subscriptionDate'].value(),form['rainfall'].value(),form['dailyMaxTurnover'].value(),form['fixedCosts'].value())
@@ -120,7 +119,7 @@ def quotation(request):
             response['Content-Disposition'] = "attachment; filename=quotationPDFFile"
             removequotationfile.after_response(quotationPDFFile)
             #response.write(open("tuto.pdf"))
-            if form['printPDF'].value()=='Yes':
+            if form['printPDF'].value()=='Oui':
                 return FileResponse(open(quotationPDFFile, "rb"), as_attachment=True, filename='quotation.pdf')
             else:
                 return HttpResponse(template.render(context, request))
