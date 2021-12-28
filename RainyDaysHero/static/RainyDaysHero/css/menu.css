@@ -5,10 +5,10 @@
 }
 
 .navbar-brand{
-width: 100%;
-    height: auto;
     text-align: center;
-    position: relative;
+    position:relative;
+    max-width:45%;
+    max-height:45%;
 }
 
 nav ul{
