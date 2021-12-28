@@ -1,6 +1,5 @@
 from django import forms
 import datetime as DtT
-#from bootstrap_datepicker_plus import DatePickerInput
 
 
 cities = ( 

@@ -1,7 +1,5 @@
 from django import forms
 import datetime as DtT
-#from bootstrap_datepicker_plus import DatePickerInput
-
 
 cities = ( 
     ("paris", "Paris"), 
@@ -17,7 +15,7 @@ cities = (
 
 class QuotationForm(forms.Form):
     clientName = forms.CharField(label='Company Name',max_length=100)
-    clientName.widget.attrs.update({'class': 'form-control', 'value':'Carrefour Antibes'})
+    clientName.widget.attrs.update({'class': 'form-control', 'value':'Polytech'})
 
     dailyMaxTurnover = forms.FloatField(label='Daily Max Turnover')
     dailyMaxTurnover.widget.attrs.update({'class': 'form-control','value':1000})
