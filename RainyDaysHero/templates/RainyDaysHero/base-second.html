@@ -9,9 +9,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'RainyDaysHero/css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'RainyDaysHero/css/menu-second.css' %}">
 
-    
+
     {% block additionnal-head-conf %}
-    
+
     {% endblock %}
     <!-- Bootstrap CSS -->
   </head>
@@ -20,7 +20,7 @@
 
   <nav class="navbar navbar-expand-md navbar-light bg-dark fixed-top navmenu">
 
-  <a class="navbar-brand"><img src="{% static 'RainyDaysHero/images/rdh.png' %}" width="650" height="300" ></a>
+  <a class="navbar-brand"><img src="{% static 'RainyDaysHero/images/rdh.png' %}"></a>
 
   <span class="navbar-toggler-icon"></span>
 
@@ -28,19 +28,13 @@
 
     <div class="collapse navbar-collapse justify-content-between" id="nav">
 
-      <ul class="navbar-nav">
-
         <li class="nav-item" >
 
-        <a class="nav-link text-light font-weight-bold px-3" href="/rdh" onclick="location.replace('/rdh/home'),'_top'">HOME</a>
+        <a class="home" href="/rdh" onclick="location.replace('/rdh/home'),'_top'">HOME</a>
 
         </li>
 
-        <div class="nav-item dropdown show" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="rain">
-
-          <div class="dropdown-menu" id="raindrop" aria-labelledby="rain">
-
-           <a class="dropdown-item" href="/rdh/quotation" onclick="location.replace('/rdh/quotation'),'_top'">Quotation</a>
+          <a class="dropdown-itema" href="/rdh/quotation" onclick="location.replace('/rdh/quotation'),'_top'">Quotation</a>
           <a class="dropdown-item" href="/rdh/retrospective" onclick="location.replace('/rdh/retrospective'),'_top'">Retrospective</a>
 
           </div>
@@ -58,7 +52,7 @@
   <br>
 
     {% block content %}
-    
+
     {% endblock %}
   </body>
 </html>
