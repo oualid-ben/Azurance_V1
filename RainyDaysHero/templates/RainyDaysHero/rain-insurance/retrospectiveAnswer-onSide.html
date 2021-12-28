@@ -18,24 +18,24 @@
 	<div class="container my-2 block-content" style={visibility='hidden'}>
 	  <div class="row">
 	    <div class="col-md-6 mx-auto myform">
-	    <h3 class="formtitle">Please fill the retrospective form</h1>
+	    <h3 class="formtitle">Veuillez répondre au questionnaire</h1>
 
 		<form action="/rdh/retrospective/" method="post">
-			{% csrf_token %} 
+			{% csrf_token %}
 	      <div class="form-group">
 	        {{ form.clientName }}
-	        <label class="form-control-placeholder" for="{{ form.clientName.id_for_label }}">Company Name</label>
+	        <label class="form-control-placeholder" for="{{ form.clientName.id_for_label }}">Nom de l'entreprise</label>
 
 	      </div>
 	      <div class="form-group">
 	        {{ form.dailyMaxTurnover }}
-	        <label class="form-control-placeholder" for="{{ form.dailyMaxTurnover.id_for_label }}">Daily Max Turnover</label>
+	        <label class="form-control-placeholder" for="{{ form.dailyMaxTurnover.id_for_label }}">Chiffre d'affaire journalier maximum</label>
 	      </div>
 
 	      <div class="form-group">
 	        {{ form.fixedCosts }}
-	        <label class="form-control-placeholder" for="{{ form.fixedCosts.id_for_label }}">Daily Fixed Costs</label>
-	        
+	        <label class="form-control-placeholder" for="{{ form.fixedCosts.id_for_label }}">Coûts fixes journalier</label>
+
 	      </div>
 
 	      <div class="form-group">
@@ -46,7 +46,7 @@
 	      <div class="form-group">
 	        {{ form.subscriptionDate }}
 	        <label class="form-control-placeholder" for="{{ form.subscriptionDate.id_for_label }}">{{ form.subscriptionDate.label }}</label>
-	        
+
 	      </div>
 
 	      <div class="form-group">
@@ -58,69 +58,30 @@
 	        {{ form.printPDF }}
 	        <label class="form-control-placeholder" for="{{ form.printPDF.id_for_label }}">{{form.printPDF.label}}</label>
 	      </div>
-	      
+
 	      <div class="form-group">
 	        <button type="submit" class="btn btn-dark">Retrospective</button>
 	      </div>
 		</form>
+		<div class="form-group">
+	        <label>Prix = {{price}} &euro;</label> <br>
+	        <label>Couverture = {{c}} &euro;</label> <br>
+	        <label>Non couverture= {{nc}} &euro;</label> <br>
+	     </div>
+	     <div class="form-group">
+	            <div class="card">
+	                <div class="card-body">
+	                    <canvas id="retrospectiveChart"></canvas>
+	                </div>
+	            </div>
+         </div>
 
 	    </div> <!--My form-->
-
-	    <div class="col-md-6 mx-auto myform"> <!--Retrospective result-->
-	    	 <h3 class="formtitle">Retrospective result</h1>
-		     <div class="form-group">
-		        <label>Premium = {{price}} &euro;</label> <br>
-		        <label>Covered Turnover = {{c}} &euro;</label> <br>
-		        <label>Not Covered Turnnver = {{nc}} &euro;</label> <br>
-		     </div>
-		     <div class="form-group">
-		            <div class="card">
-		                <div class="card-body">
-		                    <canvas id="retrospectiveChart"></canvas>
-		                </div>
-		            </div>
-	         </div>
-
-	    </div> <!--Retrospective result-->
 
 	  </div> <!--Row-->
 
 	</div> <!--Container-->
 <script type="text/javascript">
-//line
-var ctxL = document.getElementById("retrospectiveChart").getContext('2d');
-var myLineChart = new Chart(ctxL, {
-type: 'line',
-data: {
-labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-datasets: [{
-label: "Covered",
-data:  {{cm}},
-backgroundColor: [
-'rgba(105, 0, 132, .2)',
-],
-borderColor: [
-'rgba(200, 99, 132, .7)',
-],
-borderWidth: 2
-},
-{
-label: "Not Covered",
-data:  {{ncm}},
-backgroundColor: [
-'rgba(0, 137, 132, .2)',
-],
-borderColor: [
-'rgba(0, 10, 130, .7)',
-],
-borderWidth: 2
-}
-]
-},
-options: {
-responsive: true
-}
-});
 </script>
   
 {% endblock %}

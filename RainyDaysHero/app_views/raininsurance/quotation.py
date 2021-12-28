@@ -92,7 +92,7 @@ def quotation(request):
             pdf.set_text_color(238, 58, 20)
             pdf.ln(6)
             pdf.cell(60)
-            pdf.cell(65, 10, 'Rain Insurance quotation','B', ln=2)
+            pdf.cell(65, 10, 'Résultat','B', ln=2)
             pdf.set_text_color(0, 0, 0)
             pdf.set_font('Arial', 'B', 10)
             pdf.cell(65, 10, "Chiffre d'affaire journalier maximum: "+str(form['dailyMaxTurnover'].value()), ln=2)

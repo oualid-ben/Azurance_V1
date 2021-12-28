@@ -9,23 +9,23 @@
 	<div class="container my-2 block-content" style={visibility='hidden'}>
 	  <div class="row">
 	    <div class="col-md-6 mx-auto myform">
-	    <h3 class="formtitle">Please fill the quotation form</h1>
+	    <h3 class="formtitle">Questionnaire</h1>
 
 		<form action="/rdh/quotation/" method="post">
 			{% csrf_token %} 
 	      <div class="form-group">
 	        {{ form.clientName }}
-	        <label class="form-control-placeholder" for="{{ form.clientName.id_for_label }}">Company Name</label>
+	        <label class="form-control-placeholder" for="{{ form.clientName.id_for_label }}">Nom de l'entreprise</label>
 
 	      </div>
 	      <div class="form-group">
 	        {{ form.dailyMaxTurnover }}
-	        <label class="form-control-placeholder" for="{{ form.dailyMaxTurnover.id_for_label }}">Daily Max Turnover</label>
+	        <label class="form-control-placeholder" for="{{ form.dailyMaxTurnover.id_for_label }}">Chiffre d'affaire journalier maximum</label>
 	      </div>
 
 	      <div class="form-group">
 	        {{ form.fixedCosts }}
-	        <label class="form-control-placeholder" for="{{ form.fixedCosts.id_for_label }}">Daily Fixed Costs</label>
+	        <label class="form-control-placeholder" for="{{ form.fixedCosts.id_for_label }}">Coûts fixes journalier</label>
 	        
 	      </div>
 
@@ -55,7 +55,7 @@
 	      </div>
 		</form>
 	      <div class="form-group">
-	        <label>Premium = {{price}} &euro;</label>
+	        <label>Prix = {{price}} &euro;</label>
 	      </div>
 	    </div>
 	  </div>
