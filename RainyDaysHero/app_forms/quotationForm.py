@@ -15,7 +15,7 @@ cities = (
 
 class QuotationForm(forms.Form):
     clientName = forms.CharField(label="Nom de l'entreprise" ,max_length=100)
-    clientName.widget.attrs.update({'class': 'form-control', 'value':'Carrefour Antibes'})
+    clientName.widget.attrs.update({'class': 'form-control', 'value':"Boucherie Oualid"})
 
     dailyMaxTurnover = forms.FloatField(label="Chiffre d'affaire journalier maximum")
     dailyMaxTurnover.widget.attrs.update({'class': 'form-control','value':1500})
