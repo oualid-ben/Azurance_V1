@@ -1,5 +1,5 @@
 """
-ASGI config for rain_insurance_django project.
+ASGI config for Azurance_django project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rain_insurance_django.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Azurance.settings')
 
 application = get_asgi_application()

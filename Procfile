@@ -1,1 +1,1 @@
-web: gunicorn rain_insurance_django.wsgi --log-file -
+web: gunicorn Azurance_django.wsgi --log-file -
