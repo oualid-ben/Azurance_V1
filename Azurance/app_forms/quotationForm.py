@@ -5,6 +5,7 @@ cities = (
     ("paris", "Paris"), 
     ("nantes", "Nantes"), 
     ("nice", "Nice"),
+    ("monaco", "Monaco"),
     ("strasbourg", "Strasbourg"),
     ("brest", "Brest"),
     ("ajaccio", "Ajaccio"),
@@ -15,16 +16,16 @@ cities = (
 
 class QuotationForm(forms.Form):
     clientName = forms.CharField(label="Nom de l'entreprise" ,max_length=100)
-    clientName.widget.attrs.update({'class': 'form-control', 'value':"Boucherie Halal Oualid"})
+    clientName.widget.attrs.update({'class': 'form-control'})
 
     dailyMaxTurnover = forms.FloatField(label="Chiffre d'affaire journalier maximum")
-    dailyMaxTurnover.widget.attrs.update({'class': 'form-control','value':1500})
+    dailyMaxTurnover.widget.attrs.update({'class': 'form-control'})
 
     fixedCosts = forms.FloatField(label="Coûts fixes journalier")
-    fixedCosts.widget.attrs.update({'class': 'form-control','value':650	})
+    fixedCosts.widget.attrs.update({'class': 'form-control'})
 
     rainfall = forms.FloatField(label="Niveau de pluie journalier pivot (mm)")
-    rainfall.widget.attrs.update({'class': 'form-control','value':20})
+    rainfall.widget.attrs.update({'class': 'form-control'})
 
     subscriptionDate = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'class':'form-control','pattern':'\\d{4}-\\d{2}-\\d{2}' , 'value': DtT.datetime.today().strftime('%Y-%m-%d')}), label='Subscription Date')
 
