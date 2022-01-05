@@ -9,7 +9,7 @@
     height: auto;
     padding: 20px;
     text-align: center;
-    position: relative;
+    position: relative!;
 }
 
 .home{
