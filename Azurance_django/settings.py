@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Azurance.urls'
+ROOT_URLCONF = 'Azurance_django.urls'
 
 TEMPLATES = [
     {
