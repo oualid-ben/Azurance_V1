@@ -25,8 +25,8 @@ import matplotlib.pyplot as plt
 import requests as REQ
 
 ## forms
-from RainyDaysHero.app_forms.quotationForm import QuotationForm
-from RainyDaysHero.app_forms.retroForm import RetroForm
+from Azurance.app_forms.quotationForm import QuotationForm
+from Azurance.app_forms.retroForm import RetroForm
 
 ## libs for IA - load trained models
 from joblib import dump, load  # load - save models
@@ -49,7 +49,7 @@ def dataUpdateCity(city):
             print(r.headers.get('Content-disposition').split(';')[1].split('=')[1])
             dirname = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
             # server-name : r.headers.get('Content-disposition').split(';')[1].split('=')[1]
-            open(os.path.join(dirname, 'static/RainyDaysHero/data/' + 'export-' + city), 'wb').write(r.content)
+            open(os.path.join(dirname, 'static/Azaurance/data/' + 'export-' + city), 'wb').write(r.content)
         else:
             print('Error with request.')
     except Exception as e:  # requests.exceptions.ConnectionError
@@ -72,7 +72,7 @@ def removequotationfile(filename):
 def retrospective(request):
     context = {}
     if request.method == 'POST':
-        template = loader.get_template('RainyDaysHero/rain-insurance/retrospectiveAnswer-onSide.html')
+        template = loader.get_template('Azurance/rain-insurance/retrospectiveAnswer-onSide.html')
         form = RetroForm(request.POST)
         if form.is_valid():
             context['form'] = form
@@ -95,9 +95,9 @@ def retrospective(request):
             pdf.rect(8.0, 8.0, 194.0, 282.0)
 
             # App pic
-            # pdf.image(static('RainyDaysHero/images/rdh.png'), 10, 8, 33)
+            # pdf.image(static('Azurance/images/rdh.png'), 10, 8, 33)
             dirname = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-            pdf.image(os.path.join(dirname, 'static/RainyDaysHero/images/rdh.png'), 10, 8, 33)
+            pdf.image(os.path.join(dirname, 'static/Azurance/images/rdh.png'), 10, 8, 33)
             pdf.set_font('Arial', 'B', 15)
 
             # Client Name
@@ -143,7 +143,7 @@ def retrospective(request):
             else:
                 return HttpResponse(template.render(context, request))
     else:
-        template = loader.get_template('RainyDaysHero/rain-insurance/retrospective.html')
+        template = loader.get_template('Azurance/rain-insurance/retrospective.html')
         form = RetroForm(request.POST)
         context = dict(form=form)
         return HttpResponse(template.render(context, request))
@@ -160,7 +160,7 @@ def computeRetro(location, date, rainfall, turnover, fixedCosts):
     location = location.lower()
     # dataUpdateCity(location)
     dirname = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-    df = pd.read_csv(os.path.join(dirname, 'static/RainyDaysHero/data/' + 'export-' + location + '.csv'), skiprows=3)
+    df = pd.read_csv(os.path.join(dirname, 'static/Azurance/data/' + 'export-' + location + '.csv'), skiprows=3)
 
     days = [i for i in range(365)]
     nc = [0 for _ in range(365)]
