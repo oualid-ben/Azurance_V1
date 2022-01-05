@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'jquery',
     'chartjs',
     'bootstrap4',
-    'RainyDaysHero.apps.RainydaysheroConfig',
+    'Azurance.apps.RainydaysheroConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

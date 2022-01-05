@@ -1,24 +1,31 @@
-{% extends 'RainyDaysHero/base-second.html' %}
+{% extends 'Azurance/base-second.html' %}
 
 {% block additionnal-head-conf %}
 	{% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'RainyDaysHero/css/styleQuotationForm.css' %}">
+	<!--[if lte IE 8]>
+            <script src="{% static 'js/excanvas.js' %}"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="{% static 'Azurance/css/styleQuotationForm.css' %}">
+    <script type="text/javascript" src="{% static 'Azurance/js/chart-min.js' %}"></script>
+
 {% endblock %}
 
 
 
 {% block content %}
 
-	<div class="container my-2 block-content">
+
+	<div class="container my-2 block-content" style={visibility='hidden'}>
 	  <div class="row">
 	    <div class="col-md-6 mx-auto myform">
-	    <h3 class="formtitle">Veuillez répondre au questionnaire</h3>
+	    <h3 class="formtitle">Veuillez répondre au questionnaire</h1>
 
-		<form action="/rdh/quotation/" method="post">
-			{% csrf_token %} 
+		<form action="/rdh/retrospective/" method="post">
+			{% csrf_token %}
 	      <div class="form-group">
 	        {{ form.clientName }}
 	        <label class="form-control-placeholder" for="{{ form.clientName.id_for_label }}">Nom de l'entreprise</label>
+
 	      </div>
 	      <div class="form-group">
 	        {{ form.dailyMaxTurnover }}
@@ -28,7 +35,7 @@
 	      <div class="form-group">
 	        {{ form.fixedCosts }}
 	        <label class="form-control-placeholder" for="{{ form.fixedCosts.id_for_label }}">Coûts fixes journalier</label>
-	        
+
 	      </div>
 
 	      <div class="form-group">
@@ -39,7 +46,7 @@
 	      <div class="form-group">
 	        {{ form.subscriptionDate }}
 	        <label class="form-control-placeholder" for="{{ form.subscriptionDate.id_for_label }}">{{ form.subscriptionDate.label }}</label>
-	        
+
 	      </div>
 
 	      <div class="form-group">
@@ -51,14 +58,30 @@
 	        {{ form.printPDF }}
 	        <label class="form-control-placeholder" for="{{ form.printPDF.id_for_label }}">{{form.printPDF.label}}</label>
 	      </div>
-	      
+
 	      <div class="form-group">
-	        <button type="submit" class="btn btn-dark">Pricing</button>
+	        <button type="submit" class="btn btn-dark">Retrospective</button>
 	      </div>
 		</form>
-	    </div>
-	  </div>
-	</div>
+		<div class="form-group">
+	        <label>Prix = {{price}} &euro;</label> <br>
+	        <label>Couverture = {{c}} &euro;</label> <br>
+	        <label>Non couverture= {{nc}} &euro;</label> <br>
+	     </div>
+	     <div class="form-group">
+	            <div class="card">
+	                <div class="card-body">
+	                    <canvas id="retrospectiveChart"></canvas>
+	                </div>
+	            </div>
+         </div>
 
-    
+	    </div> <!--My form-->
+
+	  </div> <!--Row-->
+
+	</div> <!--Container-->
+<script type="text/javascript">
+</script>
+  
 {% endblock %}

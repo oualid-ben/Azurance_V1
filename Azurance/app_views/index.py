@@ -10,7 +10,7 @@ import os
 
 
 def index(request):
-    template = loader.get_template('RainyDaysHero/index.html')
+    template = loader.get_template('Azurance/index.html')
     context = {}
     return HttpResponse(template.render(context, request))
 
