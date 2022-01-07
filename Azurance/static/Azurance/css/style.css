@@ -40,5 +40,12 @@ body{
     z-index: 1000;
 }
 
+.img-fluid {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 
 
