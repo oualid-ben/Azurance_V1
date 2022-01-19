@@ -22,7 +22,7 @@
 nav a{
     display: inline-block;
     color: black;
-    padding: 1px 50px 20px;
+    padding: 0px 50px 20px; /*1px*/
     position: relative;
     background-color: WHITE;
 }
