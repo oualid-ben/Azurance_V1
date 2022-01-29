@@ -82,6 +82,15 @@ def retrospective(request):
                                                                         form['rainfall'].value(),
                                                                         form['dailyMaxTurnover'].value(),
                                                                         form['fixedCosts'].value())
+
+            x_coordinates = [1, 2, 3]
+
+            y1_coordinates = [1, 2, 3]
+
+            plt.plot(x_coordinates, y1_coordinates)  # plotter
+            plt.title("gain/perte")  # titre
+
+
             context['price'] = str(premium)
             context['c'] = str(covered)
             context['nc'] = str(notcovered)
