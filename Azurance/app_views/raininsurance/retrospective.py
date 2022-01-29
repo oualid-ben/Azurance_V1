@@ -83,25 +83,12 @@ def retrospective(request):
                                                                         form['dailyMaxTurnover'].value(),
                                                                         form['fixedCosts'].value())
 
-            x_coordinates = ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022']
-            y_coordinates = []
-            for annee in x_coordinates:
-                premiuma, covereda, notcovereda, ca, nca, cma, ncma = computeRetro(form['location'].value(),
-                                                                            form['subscriptionDate'].value(),
-                                                                            annee,
-                                                                            form['dailyMaxTurnover'].value(),
-                                                                            form['fixedCosts'].value()
-                                                                            )
-                y_coordinates.append(covereda)
-
 
             context['price'] = str(premium)
             context['c'] = str(covered)
             context['nc'] = str(notcovered)
             context['cm'] = str(list(cm.values()))
-            context['ncm'] = str(list(ncm.values()))
-
-            context['y_coordinates'] = str(y_coordinates)
+            context['ncm'] = str(list(ncm.values()))<
 
             print(str(list(cm.values())))
             print(str(list(ncm.values())))
