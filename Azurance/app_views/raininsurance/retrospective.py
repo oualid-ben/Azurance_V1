@@ -139,7 +139,7 @@ def retrospective(request):
                                                                             form['rainfall'].value(),
                                                                             form['dailyMaxTurnover'].value(),
                                                                             form['fixedCosts'].value())
-                y.append(covered.values() - notcovered.values())
+                y.append(float(covered) - float(notcovered))
             plt.plot(x_coordinates, y)
 
             # save file and del after response
