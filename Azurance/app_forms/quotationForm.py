@@ -32,6 +32,6 @@ class QuotationForm(forms.Form):
     location = forms.ChoiceField(label = "Ville",choices = cities)
     location.widget.attrs.update({'class': 'form-control'})
 
-    printPDF = forms.ChoiceField(label = "Obtenir devies en pdf",choices = ( ("Non", "Non"),("Oui", "Oui")))
+    printPDF = forms.ChoiceField(label = "Obtenir devis en pdf",choices = ( ("Non", "Non"),("Oui", "Oui")))
     printPDF.widget.attrs.update({'class': 'form-control'})
 
