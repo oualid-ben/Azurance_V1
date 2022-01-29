@@ -90,7 +90,12 @@ var myLineChart = new Chart(ctxL, {
   type: "line",
   data: {
     labels: xValues,
-    datasets: [{ data: {{y}}
+    datasets: [{
+      fill: false,
+      lineTension: 0,
+      backgroundColor: "rgba(0,0,255,1.0)",
+      borderColor: "rgba(0,0,255,0.1)",
+      data: {{y}}
     }]
   },
     options: {
