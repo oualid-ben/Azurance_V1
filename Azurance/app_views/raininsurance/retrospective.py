@@ -89,6 +89,7 @@ def retrospective(request):
 
             plt.plot(x_coordinates, y1_coordinates)  # plotter
             plt.title("gain/perte")  # titre
+            plt.close()
 
 
             context['price'] = str(premium)
