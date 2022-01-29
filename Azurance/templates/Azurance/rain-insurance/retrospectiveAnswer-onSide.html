@@ -89,11 +89,16 @@ var ctxL = document.getElementById("retrospectiveChart").getContext('2d');
 var myLineChart = new Chart(ctxL, {
   type: "line",
   data: {
-  	label: 'Gain/ Perte avec couverture',
     labels: xValues,
     datasets: [{ data: {{y}}
     }]
-  }
+  },
+    options: {
+        title: {
+            display: true,
+            text: 'Gain/ Perte avec couverture'
+        }
+    }
 });
 </script>
   
