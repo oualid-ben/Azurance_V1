@@ -86,11 +86,11 @@ def retrospective(request):
             y_coordinates = []
             x_coordinates = ['2018', '2019', '2020', '2021']
             for annee in x_coordinates:
-                premiuma, covereda, notcovereda, ca, nca, cma, ncma = computeRetro("paris",
+                premiuma, covereda, notcovereda, ca, nca, cma, ncma = computeRetro(form['location'].value(),
                                                                                    annee,
-                                                                                   "2",
-                                                                                   "1000",
-                                                                                   "450")
+                                                                                   form['rainfall'].value(),
+                                                                                   form['dailyMaxTurnover'].value(),
+                                                                                   form['fixedCosts'].value())
 
                 y_coordinates.append(float(covereda) - float(notcovereda))
 
