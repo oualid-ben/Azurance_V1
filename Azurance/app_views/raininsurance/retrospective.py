@@ -83,12 +83,23 @@ def retrospective(request):
                                                                         form['dailyMaxTurnover'].value(),
                                                                         form['fixedCosts'].value())
 
+            y_coordinates = []
+            for annee in x_coordinates:
+                premiuma, covereda, notcovereda, ca, nca, cma, ncma = computeRetro("paris",
+                                                                                   annee,
+                                                                                   "2",
+                                                                                   "1000",
+                                                                                   "450")
+
+                y_coordinates.append(float(covereda) - float(notcovereda))
+
 
             context['price'] = str(premium)
             context['c'] = str(covered)
             context['nc'] = str(notcovered)
             context['cm'] = str(list(cm.values()))
             context['ncm'] = str(list(ncm.values()))
+            context['y'] = y_coordinates
 
             print(str(list(cm.values())))
             print(str(list(ncm.values())))
