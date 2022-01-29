@@ -131,7 +131,7 @@ def retrospective(request):
             pdf.cell(65, 10, "Couverture: " + covered + " " + chr(128), ln=2)
             pdf.cell(65, 10, "Non couverture: " + notcovered + " " + chr(128), ln=2)
 
-            x_coordinates = [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022]
+            x_coordinates = ["2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"]
             y = []
             for anne in x_coordinates:
                 premium, covered, notcovered, c, nc, cm, ncm = computeRetro(form['location'].value(),
