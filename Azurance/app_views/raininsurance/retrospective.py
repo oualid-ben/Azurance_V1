@@ -84,6 +84,7 @@ def retrospective(request):
                                                                         form['fixedCosts'].value())
 
             y_coordinates = []
+            x_coordinates = ['2018', '2019', '2020', '2021']
             for annee in x_coordinates:
                 premiuma, covereda, notcovereda, ca, nca, cma, ncma = computeRetro("paris",
                                                                                    annee,
