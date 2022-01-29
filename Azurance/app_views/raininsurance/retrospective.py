@@ -88,7 +88,7 @@ def retrospective(request):
             context['c'] = str(covered)
             context['nc'] = str(notcovered)
             context['cm'] = str(list(cm.values()))
-            context['ncm'] = str(list(ncm.values()))<
+            context['ncm'] = str(list(ncm.values()))
 
             print(str(list(cm.values())))
             print(str(list(ncm.values())))
