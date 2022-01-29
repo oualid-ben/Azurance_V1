@@ -83,10 +83,6 @@ def retrospective(request):
                                                                         form['dailyMaxTurnover'].value(),
                                                                         form['fixedCosts'].value())
 
-            x_coordinates = [1, 2, 3]
-
-            y1_coordinates = [1, 2, 3]
-
             plt.plot(x_coordinates, y1_coordinates)  # plotter
             plt.title("gain/perte")  # titre
             plt.close()
